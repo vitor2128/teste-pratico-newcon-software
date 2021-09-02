@@ -82,7 +82,7 @@ npm start
 # Observações finais
 
 ```
-- 
+- Sobre o backend iniciei o estudo a mais ou menos 15 dias ainda não possuo tanto conhecimento mas apliquei o que aprendi durante esses dias.
 
 ```
 

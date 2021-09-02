@@ -28,7 +28,7 @@ const PageMain: React.FC = () => {
           })
           .then((response) => {
             setAttractions(response.data);
-            setTotal(response.data.length);
+            setTotal(response.headers["x-total-registros"])
           });
       } catch (error) {}
     } else {
@@ -39,10 +39,7 @@ const PageMain: React.FC = () => {
           )
           .then((response) => {
             setAttractions(response.data);
-            console.log(api.interceptors)
-            console.log(response.headers["x-pagination"])
-            console.log(response.headers[''])
-            setTotal(8);
+            setTotal(response.headers["x-total-registros"])
           });
       } catch (error) {}
     }

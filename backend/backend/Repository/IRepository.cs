@@ -16,5 +16,8 @@ namespace backend.Repository
         void Update(T entity);
 
         void Delete(T entity);
+
+        List<T> LocalizaPagina<Tipo>(int pagina, int tamanhoPagina) where Tipo : class;
+        int GetTotalRegistros();
     }
 }

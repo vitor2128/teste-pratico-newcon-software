@@ -22,6 +22,24 @@ namespace backend.Controllers
             _uof = contexto;
         }
 
+        #region Paginação
+        [HttpGet("paginacao")]
+        public ActionResult<IEnumerable<PontoTuristico>> GetPaginacao([FromQuery] int pag=1, int reg=5 )
+        {
+            var produto = _uof.PontoTuristicoRepository.LocalizaPagina<PontoTuristico>(pag, reg).ToList();
+
+
+            var totalDeRegistros = _uof.PontoTuristicoRepository.GetTotalRegistros();
+            var numeroPaginas = ((int)Math.Ceiling((double)totalDeRegistros / reg));
+
+            Response.Headers["X-Total-Registros"] = totalDeRegistros.ToString();
+            Response.Headers["X-Numero-Paginas"] = numeroPaginas.ToString();
+
+            return produto;
+
+        }
+        #endregion
+
         #region Listar Pontos Turisticos por nome
         [HttpGet("search")]
         public ActionResult<IEnumerable<PontoTuristico>> Get([FromQuery] string search)
@@ -39,7 +57,7 @@ namespace backend.Controllers
 
         #endregion 
 
-        #region Listar todos os produtos
+        #region Listar todos os produtos com paginação
         [HttpGet]
         public ActionResult<IEnumerable<PontoTuristico>> Get([FromQuery] PontoTuristicoParameters pontoTuristicoParameters)
         {
@@ -56,6 +74,9 @@ namespace backend.Controllers
             };
 
             Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
+
+            Response.Headers["X-Total-Registros"] = produto.TotalCount.ToString();
+            Response.Headers["X-Numero-Pagina"] = produto.TotalPage.ToString();
 
             return produto;
             

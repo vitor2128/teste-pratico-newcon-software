@@ -20,7 +20,7 @@ namespace backend.Repository
 
         public IEnumerable<PontoTuristico> GetPontosTuristicosPorNome(string T)
         {
-            return Get().Where(c => c.Nome.Contains(T)).ToList();
+            return Get().Where(c => c.Nome.Contains(T) || c.Cidade.Contains(T)).ToList();
         }
 
         public PagedList<PontoTuristico> GetPontosTuristicos(PontoTuristicoParameters produtosParameters)

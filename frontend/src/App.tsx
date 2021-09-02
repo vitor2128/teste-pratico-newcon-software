@@ -1,23 +1,17 @@
 import React from 'react';
+import { ToastContainer } from "react-toastify";
+import Routes from './routes';
+import GlobalStyles from './styles/globalStyles';
+
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <GlobalStyles />
+      <ToastContainer bodyStyle={{ fontSize: 16 }} />
+      <Routes />
+    </>
+  )
 }
 
 export default App;

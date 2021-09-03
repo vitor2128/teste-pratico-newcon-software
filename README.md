@@ -33,11 +33,12 @@ teste-pratico-newcon-software\
 
 ## Banco de Dados
 
-```
 Mysql
-
+```
 
 localhost:3306
+
+* alterar o arquivo appsettings.json e trocar o pwd="suasenha" para a senha local do seu banco de dados 
 
 Para sincronizar e criar o banco de dados com as tabelas acessar o diretorio:
 

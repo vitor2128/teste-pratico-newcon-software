@@ -56,9 +56,12 @@ O banco será criado junto com as tabelas, e também será inserido 8 registro p
 C# - .NET Core 5.0
 
 ```
-Rodar o comando abaixo para iniciar a API
+Rodar o comando abaixo pelo visual studio code para iniciar a API
 
 dotnet run
+
+O projeto deverá iniciar na porta 5001
+
 ```
 
 ## Frontend
